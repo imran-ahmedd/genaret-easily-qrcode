@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>৪০৪ — পেজ পাওয়া যায়নি | Tech Verse QR</title>
+<meta name="description" content="আপনি যে পেজ খুঁজছেন তা পাওয়া যায়নি। Tech Verse QR-এর হোমে ফিরে যান অথবা নতুন QR কোড তৈরি করুন।">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fafafb">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+
+<style>
+  .nf-wrap{
+    max-width:640px; margin:0 auto; padding:80px 24px 90px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .nf-visual{
+    width:140px; height:140px; background:var(--surface);
+    border:1px solid var(--line); border-radius:20px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; margin-bottom:32px;
+  }
+  .nf-grid{
+    display:grid; grid-template-columns:repeat(7,1fr); grid-template-rows:repeat(7,1fr);
+    gap:3px; width:72%; height:72%;
+  }
+  .nf-grid span{ background:var(--surface-2); border-radius:2px; animation:nf-pulse 3.2s ease-in-out infinite; }
+  @keyframes nf-pulse{ 0%, 100%{ background:var(--surface-2); } 50%{ background:var(--accent); } }
+  /* punch out a corner to read like a broken QR finder pattern */
+  .nf-grid span.on{ background:var(--text); animation:none; }
+  .nf-grid span.off{ background:transparent; animation:none; }
+
+  .nf-code{
+    font-family:var(--mono); font-size:13px; color:var(--accent-2);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; display:block;
+  }
+  .nf-wrap h1{
+    font-family:var(--disp); font-size:clamp(30px,6vw,46px); font-weight:700;
+    letter-spacing:-0.02em; margin-bottom:14px; line-height:1.15;
+  }
+  .nf-wrap h1 span{ color:var(--accent-2); }
+  .nf-wrap p{ color:var(--text-dim); font-size:15.5px; line-height:1.75; max-width:440px; margin-bottom:32px; }
+  .nf-actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:44px; }
+
+  .nf-links{
+    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  }
+  .nf-links a{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-dim);
+    background:var(--surface); border:1px solid var(--line); border-radius:8px;
+    padding:9px 14px; transition:border-color .15s ease, color .15s ease;
+  }
+  .nf-links a:hover{ border-color:var(--accent); color:var(--text); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="/" class="logo">
+      <div class="logo-mark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      Tech Verse QR
+    </a>
+    <nav class="nav-links">
+      <a href="/#home">হোম</a>
+      <a href="/#generator">জেনারেটর</a>
+      <a href="/#about">সম্পর্কে</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="nf-wrap">
+    <div class="nf-visual"><div class="nf-grid" id="nfGrid"></div></div>
+
+    <span class="nf-code">এরর ৪০৪</span>
+    <h1>এই পেজটা <span>স্ক্যান</span> করা যায়নি</h1>
+    <p>যে লিংকে এসেছেন সেটা ভুল, পুরনো অথবা মুছে ফেলা হয়েছে। চিন্তা নেই — নিচের বাটন থেকে আবার সঠিক পথে ফিরে যান।</p>
+
+    <div class="nf-actions">
+      <a href="/" class="btn btn-primary">হোমে ফিরুন →</a>
+      <a href="/#generator" class="btn btn-outline">QR তৈরি করুন</a>
+    </div>
+
+    <div class="nf-links">
+      <a href="/#home">হোম</a>
+      <a href="/#generator">জেনারেটর</a>
+      <a href="/#about">সম্পর্কে</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom">© <span id="year"></span> Tech Verse. সর্বস্বত্ব সংরক্ষিত।</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Build a QR-like grid with a broken finder pattern (top-left corner
+  // missing a piece) so it visually reads as "scan failed".
+  const grid = document.getElementById('nfGrid');
+  const size = 7;
+  // static "on" cells forming a partial finder-pattern square, broken on one side
+  const onCells = new Set([
+    '0,0','0,1','0,2','1,0','1,2','2,0','2,1','2,2', // finder square (top-left)
+    '4,4','4,5','5,4','5,6','6,4','6,5' // scattered data-ish cells
+  ]);
+  const offCells = new Set(['0,3','1,3']); // the "break" in the pattern
+
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
+      const cell = document.createElement('span');
+      const key = r + ',' + c;
+      if (onCells.has(key)) {
+        cell.className = 'on';
+      } else if (offCells.has(key)) {
+        cell.className = 'off';
+      } else {
+        cell.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+      }
+      grid.appendChild(cell);
+    }
+  }
+</script>
+</body>
+</html>
