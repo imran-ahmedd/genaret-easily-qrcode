@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Verse QR — যেকোনো তথ্যকে কিউআর কোডে রূপান্তর করুন</title>
+<meta name="description" content="URL, WiFi, কন্টাক্ট, ইমেইল সহ ৮ ধরনের QR কোড সম্পূর্ণ বিনামূল্যে ও ব্রাউজারেই তৈরি করুন — Tech Verse QR।">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/generator.css">
+<link rel="stylesheet" href="css/scan.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#home" class="logo" data-view="home">
+      <div class="logo-mark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      Tech Verse QR
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" data-view="home" class="active">হোম</a>
+      <a href="#generator" data-view="generator">জেনারেটর</a>
+      <a href="#about" data-view="about">সম্পর্কে</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="মেনু">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HOME VIEW ===================== -->
+  <section class="view-section active" id="view-home">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">৮ ধরনের QR · সম্পূর্ণ ফ্রি · আপনার নিজের ডোমেইনে</span>
+        <h1>যেকোনো তথ্যকে <span>কিউআর কোডে</span> রূপান্তর করুন এক ক্লিকে</h1>
+        <p>লিংক, WiFi, কন্টাক্ট কার্ড, ইমেইল বা ইভেন্ট — যা-ই দিন না কেন, QR স্ক্যান করলে প্রথমে আপনার নিজের ডোমেইন দেখাবে, তারপর ক্লিক করলেই সব তথ্য সুন্দরভাবে দেখা যাবে।</p>
+        <div class="hero-cta">
+          <a href="#generator" data-view="generator" class="btn btn-primary">জেনারেটর খুলুন →</a>
+          <a href="#about" data-view="about" class="btn btn-outline">আরও জানুন</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="grid-anim" id="heroGrid"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="eyebrow">সাপোর্টেড QR ধরন</span>
+        <h2>একটাই টুল, আটটা কাজ</h2>
+        <p>যেকোনো ধরনের তথ্যের জন্য আলাদা আলাদা ফরম্যাট — স্ক্যান করলেই সঠিকভাবে কাজ করবে।</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card"><span class="num">01</span><h3>URL / লিংক</h3><p>যেকোনো ওয়েবসাইট লিংককে সরাসরি QR-এ রূপান্তর করুন।</p></div>
+        <div class="feature-card"><span class="num">02</span><h3>টেক্সট</h3><p>যেকোনো বার্তা বা নোট QR আকারে শেয়ার করুন।</p></div>
+        <div class="feature-card"><span class="num">03</span><h3>WiFi</h3><p>স্ক্যান করলেই নেটওয়ার্কের নাম ও পাসওয়ার্ড দেখা যাবে।</p></div>
+        <div class="feature-card"><span class="num">04</span><h3>কন্টাক্ট (vCard)</h3><p>নাম, ফোন, ইমেইল — এক ট্যাপেই কন্টাক্ট সেভ।</p></div>
+        <div class="feature-card"><span class="num">05</span><h3>ইমেইল</h3><p>সাবজেক্ট ও মেসেজ সহ প্রি-ফিল্ড ইমেইল QR।</p></div>
+        <div class="feature-card"><span class="num">06</span><h3>ফোন কল</h3><p>স্ক্যান করলেই ডায়াল স্ক্রিন খুলে যাবে।</p></div>
+        <div class="feature-card"><span class="num">07</span><h3>SMS</h3><p>প্রি-ফিল্ড মেসেজ সহ SMS QR তৈরি করুন।</p></div>
+        <div class="feature-card"><span class="num">08</span><h3>ইভেন্ট</h3><p>এক ট্যাপে ক্যালেন্ডারে যোগ হওয়ার মতো ইভেন্ট QR।</p></div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <div>
+        <h3>এখনই আপনার প্রথম QR কোড বানান</h3>
+        <p>কোনো সাইনআপ লাগবে না — শুধু তথ্য দিন, QR রেডি।</p>
+      </div>
+      <a href="#generator" data-view="generator" class="btn btn-primary">জেনারেটর খুলুন →</a>
+    </div>
+  </section>
+
+  <!-- ===================== GENERATOR VIEW ===================== -->
+  <section class="view-section" id="view-generator">
+    <div class="generator-wrap">
+      <div>
+        <div class="panel-note">
+          <b>স্মার্ট QR:</b> QR স্ক্যান করলে সরাসরি ডেটা না দেখিয়ে প্রথমে আপনার নিজের ডোমেইনের একটি পেজ খুলবে (এই সাইট), সেখানে ব্র্যান্ডিং সহ তথ্য দেখাবে এবং প্রয়োজনীয় অ্যাকশন বাটন থাকবে।
+        </div>
+        <section class="panel">
+          <h1 class="panel-title">QR এর ধরন বেছে নিন</h1>
+          <div class="type-tabs" id="typeTabs">
+            <button data-type="url" class="active">URL</button>
+            <button data-type="text">টেক্সট</button>
+            <button data-type="wifi">WiFi</button>
+            <button data-type="vcard">কন্টাক্ট</button>
+            <button data-type="email">ইমেইল</button>
+            <button data-type="phone">ফোন</button>
+            <button data-type="sms">SMS</button>
+            <button data-type="event">ইভেন্ট</button>
+          </div>
+
+          <div id="formArea"></div>
+
+          <div class="style-row">
+            <div class="field">
+              <label>QR রং</label>
+              <div class="color-swatch">
+                <input type="color" id="fgColor" value="#121214">
+                <input type="color" id="bgColor" value="#ffffff">
+              </div>
+            </div>
+            <div class="field">
+              <label>সাইজ</label>
+              <select id="sizeSelect">
+                <option value="200">ছোট (200px)</option>
+                <option value="300" selected>মাঝারি (300px)</option>
+                <option value="400">বড় (400px)</option>
+                <option value="600">অতিরিক্ত বড় (600px)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>এরর কারেকশন</label>
+              <select id="ecSelect">
+                <option value="L">L — কম</option>
+                <option value="M" selected>M — মাঝারি</option>
+                <option value="Q">Q — ভালো</option>
+                <option value="H">H — সর্বোচ্চ</option>
+              </select>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="preview-panel">
+        <div class="panel" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+          <div class="preview-frame">
+            <div id="qrcode-box"></div>
+            <div class="empty-state" id="emptyState">
+              <div class="empty-grid" id="emptyGrid"></div>
+              তথ্য দিন, QR নিজে থেকেই তৈরি হবে
+            </div>
+          </div>
+          <div class="preview-meta" id="previewMeta"></div>
+          <button class="download-btn" id="downloadBtn" disabled>PNG ডাউনলোড করুন</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT VIEW ===================== -->
+  <section class="view-section" id="view-about">
+    <div class="about-hero">
+      <span class="eyebrow">সম্পর্কে</span>
+      <h1>নিজের ডোমেইনে ব্র্যান্ডেড QR</h1>
+      <p>Tech Verse QR একটি ব্রাউজার-ভিত্তিক QR কোড জেনারেটর, যা প্রতিটি QR-কে আপনার নিজের ডোমেইনের একটি ল্যান্ডিং পেজের সাথে যুক্ত করে দেয়।</p>
+    </div>
+    <div class="about-body">
+      <h2>এটা কীভাবে কাজ করে</h2>
+      <p>QR কোডে সরাসরি ডেটা (যেমন WiFi পাসওয়ার্ড বা কন্টাক্ট তথ্য) বসানোর বদলে, এই টুল একটি লিংক তৈরি করে যা আপনার এই একই সাইটে ফিরে আসে। স্ক্যানার প্রথমে আপনার ব্র্যান্ডিং সহ পেজটি দেখে, এরপর একটি বাটনে ক্লিক করলেই আসল অ্যাকশন (লিংক ভিজিট, কন্টাক্ট সেভ, কল, ইত্যাদি) সম্পন্ন হয়।</p>
+
+      <h2>যা যা তৈরি করা যায়</h2>
+      <ul class="about-list">
+        <li>URL / ওয়েবসাইট লিংক</li>
+        <li>যেকোনো টেক্সট বা নোট</li>
+        <li>WiFi কানেকশন (SSID + পাসওয়ার্ড)</li>
+        <li>কন্টাক্ট কার্ড (vCard) — সরাসরি .vcf ডাউনলোড</li>
+        <li>প্রি-ফিল্ড ইমেইল</li>
+        <li>ফোন কল শর্টকাট</li>
+        <li>প্রি-ফিল্ড SMS</li>
+        <li>ক্যালেন্ডার ইভেন্ট — সরাসরি .ics ডাউনলোড</li>
+      </ul>
+
+      <h2>প্রাইভেসি</h2>
+      <p>কোনো তথ্যই কোনো সার্ভারে সংরক্ষিত হয় না — সব ডেটা QR কোডের লিংকের মধ্যেই এনকোড করা থাকে এবং সম্পূর্ণ প্রক্রিয়াটি ব্রাউজারে ঘটে।</p>
+    </div>
+  </section>
+
+  <!-- ===================== SCAN / LANDING VIEW ===================== -->
+  <section class="view-section" id="view-scan">
+    <div class="scan-wrap">
+      <div class="scan-card" id="scanContent"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <a href="#home" class="logo" data-view="home">
+        <div class="logo-mark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Tech Verse QR
+      </a>
+      <p>যেকোনো তথ্যকে কিউআর কোডে রূপান্তর করুন — আপনার নিজের ডোমেইনে, কোনো ডেটা সার্ভারে সংরক্ষিত হয় না।</p>
+    </div>
+    <div class="footer-col">
+      <h4>পেজ</h4>
+      <a href="#home" data-view="home">হোম</a>
+      <a href="#generator" data-view="generator">জেনারেটর</a>
+      <a href="#about" data-view="about">সম্পর্কে</a>
+    </div>
+    <div class="footer-col">
+      <h4>QR ধরন</h4>
+      <span>URL · টেক্সট · WiFi</span>
+      <span>কন্টাক্ট · ইমেইল · ফোন</span>
+      <span>SMS · ইভেন্ট</span>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> Tech Verse. সর্বস্বত্ব সংরক্ষিত।</div>
+</footer>
+
+<script src="js/utils.js"></script>
+<script src="js/main.js"></script>
+<script src="js/qr-generator.js"></script>
+<script src="js/scan-view.js"></script>
+</body>
+</html>
