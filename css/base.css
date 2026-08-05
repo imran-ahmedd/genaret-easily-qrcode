@@ -5,14 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root{
-  --bg:#121214;
-  --surface:#1b1b1f;
-  --surface-2:#222227;
-  --line:#2c2c33;
-  --text:#edecf0;
-  --text-dim:#8f8e98;
-  --accent:#6c5cf0;
-  --accent-2:#34d1b4;
+  --bg:#fafafb;
+  --surface:#ffffff;
+  --surface-2:#f2f2f6;
+  --line:#e5e5eb;
+  --text:#17171b;
+  --text-dim:#6b6b76;
+  --accent:#5b4ff0;
+  --accent-2:#0fae87;
   --mono:'JetBrains Mono', monospace;
   --disp:'Space Grotesk', sans-serif;
   --body:'Inter', sans-serif;
