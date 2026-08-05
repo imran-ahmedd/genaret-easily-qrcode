@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const knownViews = ['home', 'generator', 'about', 'privacy', 'terms', 'contact'];
+
   window.addEventListener('popstate', () => {
     const hash = location.hash.replace('#', '') || 'home';
-    if (hash !== 'scan') showView(hash);
+    if (hash !== 'scan') showView(knownViews.includes(hash) ? hash : 'home');
   });
 
   // ---- footer year ----
@@ -59,5 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   const initialHash = location.hash.replace('#', '') || 'home';
-  showView(['home', 'generator', 'about'].includes(initialHash) ? initialHash : 'home');
+  showView(knownViews.includes(initialHash) ? initialHash : 'home');
+
+  // ---- legal pages: auto-fill "last updated" date ----
+  document.querySelectorAll('[data-legal-date]').forEach(el => {
+    el.textContent = new Date().toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' });
+  });
 });
