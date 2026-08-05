@@ -1,0 +1,74 @@
+/* ==========================================================
+   Tech Verse QR — base.css
+   Reset, design tokens, typography, buttons
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#121214;
+  --surface:#1b1b1f;
+  --surface-2:#222227;
+  --line:#2c2c33;
+  --text:#edecf0;
+  --text-dim:#8f8e98;
+  --accent:#6c5cf0;
+  --accent-2:#34d1b4;
+  --mono:'JetBrains Mono', monospace;
+  --disp:'Space Grotesk', sans-serif;
+  --body:'Inter', sans-serif;
+  --radius:14px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(108,92,240,0.12), transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(52,209,180,0.08), transparent 40%);
+}
+main{ flex:1; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; cursor:pointer; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+}
+
+/* view sections toggled by js/main.js router */
+.view-section{ display:none; }
+.view-section.active{ display:block; }
+
+/* ---------- Logo mark ---------- */
+.logo-mark{
+  width:26px; height:26px; border-radius:6px;
+  display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr);
+  gap:2px; padding:3px; background:var(--surface-2); border:1px solid var(--line);
+  flex-shrink:0;
+}
+.logo-mark span{ background:var(--accent); border-radius:1px; }
+.logo-mark span:nth-child(2),.logo-mark span:nth-child(4),.logo-mark span:nth-child(6),.logo-mark span:nth-child(8){background:transparent;}
+.logo-mark span:nth-child(5){background:var(--accent-2);}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 26px; border-radius:10px; font-family:var(--disp); font-weight:600;
+  font-size:14.5px; border:none; transition:transform .12s ease, opacity .12s ease;
+}
+.btn:hover{ transform:translateY(-1px); }
+.btn-primary{ background:var(--accent-2); color:#0a0a0a; }
+.btn-outline{ background:transparent; color:var(--text); border:1px solid var(--line); }
+.btn-outline:hover{ border-color:var(--accent); }
+.btn:disabled{ opacity:0.4; cursor:not-allowed; transform:none; }
+
+.eyebrow{
+  font-family:var(--mono); font-size:12px; color:var(--accent-2);
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px; display:block;
+}
