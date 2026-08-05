@@ -1,0 +1,71 @@
+/* ==========================================================
+   Tech Verse QR — home.css
+   Hero, feature grid, CTA band, about content
+   ========================================================== */
+
+.hero{
+  max-width:1120px; margin:0 auto; padding:64px 24px 50px;
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+}
+@media (max-width: 860px){ .hero{ grid-template-columns:1fr; padding-top:40px; } }
+.hero h1{
+  font-family:var(--disp); font-size:clamp(30px,5vw,48px); font-weight:700;
+  line-height:1.12; letter-spacing:-0.02em; margin-bottom:18px;
+}
+.hero h1 span{ color:var(--accent-2); }
+.hero p{ color:var(--text-dim); font-size:16px; line-height:1.7; max-width:480px; margin-bottom:28px; }
+.hero-cta{ display:flex; gap:12px; flex-wrap:wrap; }
+
+.hero-visual{
+  aspect-ratio:1/1; max-width:320px; margin:0 auto; background:var(--surface);
+  border:1px solid var(--line); border-radius:20px; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.grid-anim{
+  display:grid; grid-template-columns:repeat(9,1fr); grid-template-rows:repeat(9,1fr);
+  gap:4px; width:70%; height:70%;
+}
+.grid-anim span{ background:var(--surface-2); border-radius:2px; animation:pulse 3.2s ease-in-out infinite; }
+@keyframes pulse{ 0%, 100%{ background:var(--surface-2); } 50%{ background:var(--accent); } }
+
+.section{ max-width:1120px; margin:0 auto; padding:36px 24px; }
+.section-head{ margin-bottom:32px; }
+.section-head h2{ font-family:var(--disp); font-size:26px; font-weight:600; letter-spacing:-0.01em; }
+.section-head p{ color:var(--text-dim); margin-top:8px; max-width:540px; }
+
+.feature-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+@media (max-width: 860px){ .feature-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width: 520px){ .feature-grid{ grid-template-columns:1fr; } }
+
+.feature-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px; transition:border-color .15s ease, transform .15s ease;
+}
+.feature-card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.feature-card .num{ font-family:var(--mono); font-size:11px; color:var(--accent-2); margin-bottom:10px; display:block; }
+.feature-card h3{ font-family:var(--disp); font-size:16px; font-weight:600; margin-bottom:6px; }
+.feature-card p{ color:var(--text-dim); font-size:13px; line-height:1.6; }
+
+.cta-band{
+  max-width:1120px; margin:20px auto 60px; padding:36px 32px;
+  background:linear-gradient(135deg, rgba(108,92,240,0.15), rgba(52,209,180,0.08));
+  border:1px solid var(--line); border-radius:20px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+}
+.cta-band h3{ font-family:var(--disp); font-size:22px; font-weight:600; margin-bottom:6px; }
+.cta-band p{ color:var(--text-dim); font-size:14px; }
+
+/* ---------- About view ---------- */
+.about-hero{ max-width:760px; margin:0 auto; padding:60px 24px 20px; text-align:center; }
+.about-hero .eyebrow{ justify-content:center; display:flex; }
+.about-hero h1{ font-family:var(--disp); font-size:clamp(26px,4vw,38px); font-weight:700; margin-bottom:14px; }
+.about-hero p{ color:var(--text-dim); font-size:15.5px; line-height:1.8; }
+
+.about-body{ max-width:760px; margin:0 auto; padding:16px 24px 60px; }
+.about-body h2{ font-family:var(--disp); font-size:19px; margin:26px 0 10px; }
+.about-body p{ color:var(--text-dim); font-size:14.5px; line-height:1.8; margin-bottom:10px; }
+.about-list{ list-style:none; margin-top:12px; display:grid; gap:8px; }
+.about-list li{
+  font-family:var(--mono); font-size:13px; color:var(--text); background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; padding:10px 14px;
+}
